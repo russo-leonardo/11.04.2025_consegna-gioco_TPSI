@@ -28,8 +28,8 @@ var CarObject = {
     speedY: 0,
     width: 110,
     height: 190,
-    x: 130,
-    y: 120,
+    x: 422,
+    y: 600,
     image: new Image(), // Carica un'immagine singola per l'auto
 
     loadImages: function() {
@@ -53,13 +53,25 @@ var CarObject = {
         }
     }
 };
-
+let scroll_velocita = 5;
+let cont = 0;
 // Funzione per aggiornare la posizione e ridisegnare la scena
 function updateGameArea() {
     myGameArea.clearCanva();
+    cont ++;
+    if(cont % 50 ==0 && cont <500)
+    {
+        scroll_velocita += 0.2; 
+    }
+    if(cont > 3000)
+    {
+        console.log (cont)
+        scroll_velocita = 0 ;
+    }
+    console.log(cont)
     
     // Scorrimento dello sfondo
-    myGameArea.backgroundY += 100;  // Imposta la velocità di scorrimento dello sfondo
+    myGameArea.backgroundY += scroll_velocita;  // Imposta la velocità di scorrimento dello sfondo
     if (myGameArea.backgroundY >= myGameArea.canvas.height) {
         myGameArea.backgroundY = 0; // Riposiziona lo sfondo quando arriva alla fine
     }
@@ -76,12 +88,6 @@ function startGame() {
 // Funzione per gestire l'input della tastiera
 function controlCar(event) {
     switch (event.key) {
-        case 'ArrowUp':
-            CarObject.speedY = -5;  // Muovi verso l'alto
-            break;
-        case 'ArrowDown':
-            CarObject.speedY = 5;  // Muovi verso il basso
-            break;
         case 'ArrowLeft':
             CarObject.speedX = -5;  // Muovi verso sinistra
             break;
@@ -93,9 +99,6 @@ function controlCar(event) {
 
 // Funzione per fermare l'auto quando le frecce vengono rilasciate
 function stopCar(event) {
-    if (event.key == 'ArrowUp' || event.key == 'ArrowDown') {
-        CarObject.speedY = 0;
-    }
     if (event.key == 'ArrowLeft' || event.key == 'ArrowRight') {
         CarObject.speedX = 0;
     }
