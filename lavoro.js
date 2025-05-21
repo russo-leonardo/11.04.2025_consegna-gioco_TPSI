@@ -131,7 +131,7 @@ function updateGameArea() {
     // Scorrimento dello sfondo con la velocità aggiornata
     myGameArea.backgroundY += scroll_velocita;  
     if (myGameArea.backgroundY >= myGameArea.canvas.height) {
-        myGameArea.backgroundY = 0; // Riposiziona lo sfondo quando arriva alla fine
+        myGameArea.backgroundY = 0; // Riposiziona lo sfondo all'inizio
     }
 
 
