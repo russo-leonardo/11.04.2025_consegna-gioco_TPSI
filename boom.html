@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esplosione!</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: black;
+        }
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Fa sì che l'immagine copra tutta la pagina */
+        }
+    </style>
+</head>
+<body>
+    <img src="boom.gif" alt="Boom!">
+    
+    <script>
+        // Dopo un ritardo di 1 secondo (1000 ms), reindirizza alla pagina game_over.html
+        setTimeout(function() {
+            window.location.href = "game_over.html"; // Reindirizza alla pagina game_over.html
+        }, 3000);  // Ritardo di 1 secondo
+    </script>
+</body>
+</html>
