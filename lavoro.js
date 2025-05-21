@@ -91,16 +91,22 @@ var BucObject = {
             car.x + car.width > this.x &&
             car.y < this.y + this.height &&
             car.y + car.height > this.y) {
-            
-            // Collisione: prima vai a boom.html
+    
+            // Ferma l'auto immediatamente alla posizione di collisione
+            car.x = this.x + this.width;  // Impedisce all'auto di attraversare la buca
+            car.speedX = 0;  // Ferma l'auto orizzontalmente
+            car.speedY = 0;  // Ferma l'auto verticalmente
+    
+            // Eseguiamo il reindirizzamento alla pagina boom.html
             window.location.href = "boom.html"; // Reindirizza alla pagina boom.html
     
-            // Dopo 1 secondo, reindirizza alla pagina game_over.html
+            //reindirizza alla pagina game_over.html
             setTimeout(function() {
                 window.location.href = "game_over.html"; // Reindirizza alla pagina game_over.html
-            }, 1000);  // Ritardo di 1 secondo (1000 ms)
+            }, 3000);  // Ritardo di 3 secondo (3000 ms)
         }
     },
+    
     
 
 
